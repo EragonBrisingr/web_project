@@ -12,14 +12,14 @@
 
 .navbar{
     background-color: blanchedalmond;
-    height:90px;
+    height:80px;
     width:100%;
     position: fixed;
     padding: 0;
 }
 
 .container{
-    background-color: azure;
+
     padding: 0;
 }
 
@@ -27,7 +27,7 @@
     list-style: none;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 80%;
     padding: 0;
     margin: 2%;
     left: 0;
@@ -48,6 +48,28 @@
     margin: 0;
 }
 
+.search-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-area input{
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+    border: none;
+    margin: 1%;
+}
+
+.search-area button{
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(42, 133, 0);
+    color: white;
+    margin: 1%;
+}
 
 
 

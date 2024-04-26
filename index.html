@@ -10,6 +10,7 @@
     
 
     <title>Web project</title>
+    
   </head>
   <body>
     <nav class="navbar">
@@ -33,10 +34,17 @@
 
         </div>
         <div class="col-4">
-
+            <div class = "search-area">
+                <input type="text" placeholder="Search" id="txtSearch">
+                <button id="search-button" onclick="searchButton()">Search</button>
+            </div>
         </div>
     </nav>
     
-    
+    <div id="searchResults"></div>
+
+    <script src="scripting.js">
+
+    </script>
   </body>
 </html>
