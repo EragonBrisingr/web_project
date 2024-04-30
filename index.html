@@ -15,20 +15,23 @@
   <body>
     <nav class="navbar">
         <div class="container col-4">
-            <ul>
-                <li class="nav-item">
-                    <a href="#"> <img src="logo.jpg" alt="logo" style="max-height: 30px;"> </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
+            <div class="row col-8">
+                <ul class="col-8">
+                    <li class="nav-item">
+                        <a href="#"> <img src="logo.jpg" alt="logo" style="max-height: 30px;"> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            
         </div>
         <div class="col-4">
 
@@ -40,8 +43,25 @@
             </div>
         </div>
     </nav>
+
+
+    <div class="background">
+        <div class="container main-area">
+            <!-- Add the .row class here to wrap your columns -->
+            <div class="row">
+                <div class="col-2 inutile">
+                    <!-- Content for left side column -->
+                </div>
+                <div class="col-8 vue">
+                    <!-- Content for center column -->
+                </div>
+                <div class="col-2 inutile">
+                    <!-- Content for right side column -->
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <div id="searchResults"></div>
 
     <script src="scripting.js">
 
