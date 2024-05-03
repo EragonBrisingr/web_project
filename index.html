@@ -13,9 +13,10 @@
     
   </head>
   <body>
-    <nav class="navbar">
+    <nav class="nav">
         <div class="container col-4">
             <div class="row col-8">
+                <i class="fa-solid fa-xmark"></i>
                 <ul class="col-8">
                     <li class="nav-item">
                         <a href="#"> <img src="logo.jpg" alt="logo" style="max-height: 30px;"> </a>
@@ -42,25 +43,39 @@
                 <button id="search-button" onclick="searchButton()">Search</button>
             </div>
         </div>
+        <i class="fa-solid fa-bars"></i>
     </nav>
 
-
-    <div class="background">
-        <div class="container main-area">
-            <!-- Add the .row class here to wrap your columns -->
-            <div class="row">
-                <div class="col-2 inutile">
-                    <!-- Content for left side column -->
-                </div>
-                <div class="col-8 vue">
-                    <!-- Content for center column -->
-                </div>
-                <div class="col-2 inutile">
-                    <!-- Content for right side column -->
+    <main id="book-container" class="container">
+        <div class="row" id="main">
+            <!--
+            <div class="card card-style" style="width: 18rem;">
+                <img class="card-img-top" src="https://placehold.co/600x400" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
+            <div class="card card-style" style="width: 18rem;">
+                <img class="card-img-top" src="https://placehold.co/600x400" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card card-style" style="width: 18rem;">
+                <img class="card-img-top" src="https://placehold.co/600x400" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            -->
         </div>
-    </div>
+    </main>
     
 
     <script src="scripting.js">

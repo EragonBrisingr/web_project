@@ -15,11 +15,12 @@ html{
   }
   
 
-.navbar{
+.nav{
     background-color: blanchedalmond;
     height:5em;
     width:100%;
     padding: 0;
+    align-items: center;
 }
 
 .container{
@@ -74,41 +75,45 @@ html{
     margin: 1%;
 }
 
-.background{
-    background-color: rgb(36, 36, 37);
-    width: 100%;
-    height: 100em;
-    padding: 0;
-    margin: 0;
+
+#book-container{
+    padding: 3rem 0;
+    display: flex;
+    flex: wrap;
 }
 
-.main-area{
-    width: 100%;
-    height: 10em;
-    background-color: darkblue;
-    z-index: 1;
-    max-width: 100% !important;
+.card-style{
+    margin: 10px;
+    padding: 1%;
 }
 
-.container{
-    padding: 0 !important;
-    width: 100%;
-    margin: 0 !important;
+.card-style:hover{
+    box-shadow: 8px 8px 5px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s ease-in-out;
 }
 
-.row{
-    padding: 0 !important;
-    margin: 0 !important;
+.copyright {
+    position: absolute;
+    bottom: 0;
+    width: 100%; 
+    background-color: lightgrey;
+    text-align: center;
+    color: grey;
+    padding: 20px;
+    left: 0; 
 }
 
-.inutile{
-    width: 100%;
-    height: 10em;
-    background-color: blueviolet;
-    padding: 0 !important;
-    margin: 0 !important;
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers items on the line */
+    align-items: start; /* Aligns items such that their starting points align */
+    gap: 20px; /* Optional: adds space between the cards */
 }
 
-.vue{
-    padding: 0 !important;
+@media screen and (max-width: 600px){    
+    .card-style{
+        margin: 2% auto;
+        padding: 1%;
+    }
 }
