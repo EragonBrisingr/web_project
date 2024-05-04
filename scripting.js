@@ -20,8 +20,11 @@ searchForm.addEventListener("submit", async (event) => {
 
 async function fetchBooks(query = "fiction") {
     try {
-        // Use default query (e.g., 'fiction') if no query is provided
+        // cant call without at least one parameter or query so giving fiction as a default query
+        // the "?" is used to "initiate" the query or search variables/parameters
+        // the "&" is used to add more parameters (or conditions) to the query
         const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&maxResults=40&key=${apikey}`;
+        //encode makes sure that the query is in a format that can be used in a URL
         const response = await fetch(apiUrl);
         const data = await response.json();
         console.log(data);
