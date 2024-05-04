@@ -1,57 +1,82 @@
-
-const apikey = 'AIzaSyC9b-eSB0ElErR1EVzOle_TfeL4mFRpTH8'
+const apikey = 'AIzaSyC9b-eSB0ElErR1EVzOle_TfeL4mFRpTH8';
 
 const bookContainer = document.getElementById("main");
+const searchForm = document.getElementById("searchForm");
 
-async function fetchRandomBooks() {
+searchForm.addEventListener("submit", async (event) => {
+    event.preventDefault(); // Prevent page refresh
+
+    // Get the value of the search input
+    const query = document.getElementById("txtSearch").value.trim();
+    if (query !== "") {
+        try {
+            const books = await fetchBooks(query);
+            displayBooks(books);
+        } catch (error) {
+            console.error("Error fetching books with query:", error);
+        }
+    }
+});
+
+async function fetchBooks(query = "fiction") {
     try {
-        const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=fiction&maxResults=40&key=${apikey}`;
+        // Use default query (e.g., 'fiction') if no query is provided
+        const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&maxResults=40&key=${apikey}`;
         const response = await fetch(apiUrl);
         const data = await response.json();
         console.log(data);
-        return data.items || [];
+        return data.items || []; // Handle empty or null response
     } catch (error) {
-        console.error("Error fetching random books", error);
+        console.error(`Error fetching books with query "${query}":`, error);
         return [];
     }
 }
 
 function displayBooks(books) {
     if (!bookContainer) {
-        console.error("book container not found");
+        console.error("Book container not found");
         return;
     }
-    bookContainer.innerHTML = "";
+
+    bookContainer.innerHTML = ""; // Clear the container before adding new books
+
     books.forEach((book) => {
+        // Create the card container
         const bookCard = document.createElement("div");
-        bookCard.classList.add("card","card-style");
+        bookCard.classList.add("card", "card-style");
         bookCard.style.width = "18rem";
         bookCard.style.height = "25rem";
-        
+
+        // Create and set up the book thumbnail image
         const img = document.createElement("img");
         img.classList.add("card-img-top");
         img.style.height = "15rem";
-        // Check if imageLinks and thumbnail exist before accessing the thumbnail
         img.src = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150'; // Provide a placeholder if no thumbnail is available
         img.alt = book.volumeInfo.title;
-        
+
+        // Create and set up the book title
         const title = document.createElement("h5");
         title.classList.add("card-title");
-        title.textContent = book.volumeInfo.title;
         const truncateTitle = book.volumeInfo.title.length > 20 ? book.volumeInfo.title.slice(0, 20) + "..." : book.volumeInfo.title;
         title.textContent = truncateTitle;
 
-        const description = document.createElement("p"); // Description element needs to be created here
+        // Create and set up the book description
+        const description = document.createElement("p");
         description.classList.add("card-text");
         if (book.volumeInfo.description) {
-            const truncateDescription = book.volumeInfo.description.length > 120 
-                ? book.volumeInfo.description.slice(0, 120) + "..." 
-                : book.volumeInfo.description;
+            const truncateDescription = book.volumeInfo.description.length > 120 ? book.volumeInfo.description.slice(0, 120) + "..." : book.volumeInfo.description;
             description.textContent = truncateDescription;
         } else {
             description.textContent = "No description available.";
-        }     
+        }
 
+        bookCard.addEventListener("click", () => {
+            // Pass book ID via query parameters
+            const bookId = book.id;
+            window.location.href = `bookDetails.html?bookId=${encodeURIComponent(bookId)}`;
+        });
+
+        // Append all elements to the card and add the card to the book container
         bookCard.appendChild(img);
         bookCard.appendChild(title);
         bookCard.appendChild(description);
@@ -61,59 +86,10 @@ function displayBooks(books) {
 
 (async () => {
     try {
-        const books = await fetchRandomBooks();
+        // Initially load books with a default query (e.g., "fiction")
+        const books = await fetchBooks();
         displayBooks(books);
     } catch (error) {
-        console.error("Error in processing", error);
+        console.error("Error in processing default books:", error);
     }
 })();
-
-/*
-function searchBooks() {
-    var search = document.getElementById("txtSearch").value;
-    var url = "https://www.googleapis.com/books/v1/volumes?q=" + search + "&key=AIzaSyC9b-eSB0ElErR1EVzOle_TfeL4mFRpTH8";
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            var books = data.items;
-            var searchResults = document.getElementById("searchResults");
-            searchResults.innerHTML = "";
-            if (books) {
-                books.forEach(book => {
-                    var title = book.volumeInfo.title;
-                    var authors = book.volumeInfo.authors;
-                    var description = book.volumeInfo.description;
-
-                    var bookElement = document.createElement("div");
-                    bookElement.classList.add("book");
-
-                    var titleElement = document.createElement("h3");
-                    titleElement.textContent = title;
-                    bookElement.appendChild(titleElement);
-
-                    var descriptionElement = document.createElement("p");
-                    descriptionElement.textContent = description.substring(0, 100) + "...";
-                    bookElement.appendChild(descriptionElement);
-
-                    searchResults.appendChild(bookElement);
-                });
-            } else {
-                searchResults.innerHTML = "<p>No results found.</p>";
-            }
-
-            // Check if API was implemented correctly
-            console.log("API implementation status: Success");
-
-            // Check if API works
-            if (books && books.length > 0) {
-                console.log("API works: Yes");
-            } else {
-                console.log("API works: No");
-            }
-        })
-        .catch(error => {
-            console.error("Error searching books:", error);
-        });
-}
-*/
