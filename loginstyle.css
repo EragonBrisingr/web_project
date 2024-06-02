@@ -1,0 +1,99 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+h1 {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: normal;
+        }
+
+body {
+    background-image: url("logo2.jpg");
+    background-repeat: repeat;
+    background-position: center; 
+    opacity: 1.0;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+input[type=text],input[type=password],input[type="email"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  border-radius: 25px;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+}
+
+input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    
+}
+input[type="submit"]:hover {
+    background-color: 	#454545 ;
+}
+input[type="button"]:hover {
+    background-color: 	#454545 ;
+}
+input::placeholder{
+    color:transparent;
+}
+.center-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.fas.fa-user 
+{
+    font-size:20px;
+    float: left;
+    margin: 5px; 
+}
+.fas.fa-envelope{
+    
+    font-size:20px;
+    float: left;
+    margin: 5px; 
+    
+}
+.fas.fa-lock{
+    
+    font-size:20px;
+    float: left;
+    margin: 5px; 
+}
+label {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 20px;
+            color: #333;
+            display: block;
+            text-align: left;
+        }

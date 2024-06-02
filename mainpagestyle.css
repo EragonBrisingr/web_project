@@ -1,0 +1,42 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+h1 {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: normal;
+        }
+
+body {
+    background-image: url("background.jpg");
+    opacity: 1.0;
+    display: table-cell;
+    vertical-align: middle;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+}
+
+input[type="submit"]:hover {
+    background-color: #454545;
+    border-radius: 25px;
+}
+.center-box {
+    background-color: white;
+    padding: 70px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
