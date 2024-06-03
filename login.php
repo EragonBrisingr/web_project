@@ -14,7 +14,12 @@
 
     if(mysqli_num_rows($result) == 1){
         echo "Login Successful";
-        header("Location: index.html");
+        
+        echo "var params = new URLSearchParams();
+        params.append('username', $username);
+
+        var url = new URL('index.html');
+        location.href = url";
     }
     else{
         echo "<script>alert('Login Failed'); window.location.href = 'login.html';</script>";
