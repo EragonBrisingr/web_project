@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(isset($_SESSION['username'])){
+      $user = $_SESSION['username'];
+      $email = $_SESSION['email'];
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,11 +26,16 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              <li class="nav-item" style="padding-top:5%;">
+                <?php
+                    if(isset($_SESSION['username'])): ?>
+                      Welcome, 
+                      <?php echo $_SESSION['username']; ?>
+                  <?php endif; ?>
+                  !
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
               </li>
               
             </ul>
@@ -42,22 +54,29 @@
                 <hr>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">John Doe</h5>
-                        <p class="card-text">Email: john.doe@example.com</p>
-                        <p class="card-text">Username: johndoe</p>
-                        <p class="card-text">Role: User</p>
+                        <h5 class="card-title">
+                            <?php
+                                if(isset($_SESSION['username'])): ?>
+                                <?php echo $_SESSION['username']; ?>
+                            <?php endif; ?>
+                        </h5>
+                        <p class="card-text">Email: 
+                            <?php
+                                if(isset($_SESSION['email'])): ?>
+                                <?php echo $_SESSION['email']; ?>
+                            <?php endif; ?>
+                        </p>
                     </div>
                 </div>
                 <hr>
-                <h3>Bookmarked Books</h3>
-                <ul>
-                    <li>Book 1</li>
-                    <li>Book 2</li>
-                    <li>Book 3</li>
-                </ul>
             </div>
         </div>
     </div>
+    <main id="book-container" class="container">
+        <div class="row" id="main">
+          
+        </div>
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

@@ -48,7 +48,7 @@ function displayBooks(books) {
         const bookCard = document.createElement("div");
         bookCard.classList.add("card", "card-style");
         bookCard.style.width = "18rem";
-        bookCard.style.height = "25rem";
+        bookCard.style.height = "26rem";
 
         // Create and set up the book thumbnail image
         const img = document.createElement("img");

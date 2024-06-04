@@ -20,9 +20,12 @@
 
     $row = $result->fetch_assoc();
     $username = $row['username'];  // Correctly fetching the username from the result set
+    $userId = $row['userID'];  // Correctly fetching the user id from the result set
 
     if(mysqli_num_rows($result) == 1){
         $_SESSION['username']=$username;
+        $_SESSION['email']=$email;
+        $_SESSION['userId']=$userId;
         echo "<script>alert('Welcome, $username!'); window.location.href = 'index.php';</script>";
     }
     else{
