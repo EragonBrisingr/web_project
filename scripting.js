@@ -76,7 +76,7 @@ function displayBooks(books) {
         bookCard.addEventListener("click", () => {
             // Pass book ID via query parameters
             const bookId = book.id;
-            window.location.href = `bookDetails.html?bookId=${encodeURIComponent(bookId)}`;
+            window.location.href = `bookDetails.php?bookId=${encodeURIComponent(bookId)}`;
         });
 
         // Append all elements to the card and add the card to the book container

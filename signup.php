@@ -1,4 +1,10 @@
 <?php
+    //start session for 30mins
+    session_start();
+    // Set session timeout to 30 minutes
+    ini_set('session.gc_maxlifetime', 1800);
+    session_set_cookie_params(1800);
+
 
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -26,6 +32,7 @@
         $sql = "Insert into login(username, email, password)
                 values('$username', '$email', '$password')";
         if($conn->query($sql) === TRUE){
+            $_SESSION['username']=$username;
             echo "<script>alert('Signup Successful!'); window.location.href = 'index.html';</script>";
         }
         else{

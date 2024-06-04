@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['username'])){
+        $user = $_SESSION['username'];
+    }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,13 +26,15 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <?php
+                if(isset($_SESSION['username'])){
+                    $user = $_SESSION['username'];
+                }
+            ?>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              
+                           
             </ul>
             <form id="searchForm" class="d-flex">
               <input class="form-control me-2" id="txtSearch" placeholder="Search">
