@@ -81,6 +81,40 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('fetchBooks.php')
+        .then(response => response.json())
+        .then(books => {
+            if (books.error) {
+                alert('Error: ' + books.error);
+                return;
+            }
+            const container = document.getElementById('main');
+            books.forEach(book => {
+                const div = document.createElement('div');
+                div.className = 'col-md-4';
+                div.innerHTML = `
+                    <div class="card mb-4 shadow-sm">
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${book.googleBooksUrl}" alt="Book Image">
+                        <div class="card-body">
+                            <p class="card-text">${book.title}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        })
+        .catch(error => console.error('Error loading books:', error));
+});
+</script>
+
 </body>
 
 </html>

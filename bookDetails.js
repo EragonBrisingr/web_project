@@ -73,10 +73,15 @@ function saveBook(book) {
             throw new Error(data.message);
         }
     })
+    .then(response => {
+        console.log(response);
+        return response.json();
+    })
     .catch(error => {
         console.error("Error saving book:", error);
         alert("Failed to save book. Please try again.");
     });
+    
 }
 
 
