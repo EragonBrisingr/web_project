@@ -3,8 +3,7 @@
     //start session for 30mins
     session_start();
     // Set session timeout to 30 minutes
-    ini_set('session.gc_maxlifetime', 1800);
-    session_set_cookie_params(1800);
+    
 
     $username = $_POST['username'];
     $email = $_POST['email'];

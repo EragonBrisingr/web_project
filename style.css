@@ -59,7 +59,7 @@ html{
 }
 
 .search-area input{
-    border-radius: 10px;
+    border-radius: 25px;
     padding: 10px;
     width: 50%;
     border: none;
@@ -67,7 +67,7 @@ html{
 }
 
 .search-area button{
-    border-radius: 10px;
+    border-radius: 250px;
     padding: 10px;
     border: none;
     background-color: rgb(42, 133, 0);
@@ -75,6 +75,33 @@ html{
     margin: 1%;
 }
 
+.btn{
+    border-radius:20px !important;
+}
+
+.form-control{
+    border-radius: 20px !important;
+}
+
+.logout{
+    text-decoration: none;
+    color: black;
+    padding-top: 6%;
+}
+
+.btn-outline-success{
+    color: #000;
+    background-color: transparent;
+    background-image: none;
+    border-color: #000;
+
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #000 !important;
+    border-color: #000 !important;
+  }
 
 #book-container{
     padding: 3rem 0;

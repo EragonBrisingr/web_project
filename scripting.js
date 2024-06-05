@@ -10,7 +10,7 @@ searchForm.addEventListener("submit", async (event) => {
     const query = document.getElementById("txtSearch").value.trim();
     if (query !== "") {
         try {
-            const books = await fetchBooks(query);
+            const books = await fetchBooks(query); //an array of books
             displayBooks(books);
         } catch (error) {
             console.error("Error fetching books with query:", error);
@@ -47,31 +47,31 @@ function displayBooks(books) {
         // Create the card container
         const bookCard = document.createElement("div");
         bookCard.classList.add("card", "card-style");
-        bookCard.style.width = "18rem";
-        bookCard.style.height = "26rem";
+        bookCard.style.width = "10rem";
+        bookCard.style.height = "15rem";
 
         // Create and set up the book thumbnail image
         const img = document.createElement("img");
         img.classList.add("card-img-top");
-        img.style.height = "15rem";
+        img.style.height = "10rem";
         img.src = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150'; // Provide a placeholder if no thumbnail is available
         img.alt = book.volumeInfo.title;
 
         // Create and set up the book title
         const title = document.createElement("h5");
         title.classList.add("card-title");
-        const truncateTitle = book.volumeInfo.title.length > 20 ? book.volumeInfo.title.slice(0, 20) + "..." : book.volumeInfo.title;
+        const truncateTitle = book.volumeInfo.title.length > 20 ? book.volumeInfo.title.slice(0, 10) + "..." : book.volumeInfo.title;
         title.textContent = truncateTitle;
 
         // Create and set up the book description
-        const description = document.createElement("p");
-        description.classList.add("card-text");
-        if (book.volumeInfo.description) {
-            const truncateDescription = book.volumeInfo.description.length > 120 ? book.volumeInfo.description.slice(0, 120) + "..." : book.volumeInfo.description;
-            description.textContent = truncateDescription;
-        } else {
-            description.textContent = "No description available.";
-        }
+        // const description = document.createElement("p");
+        // description.classList.add("card-text");
+        // if (book.volumeInfo.description) {
+        //     const truncateDescription = book.volumeInfo.description.length > 120 ? book.volumeInfo.description.slice(0, 120) + "..." : book.volumeInfo.description;
+        //     description.textContent = truncateDescription;
+        // } else {
+        //     description.textContent = "No description available.";
+        // }
 
         bookCard.addEventListener("click", () => {
             // Pass book ID via query parameters
@@ -82,7 +82,7 @@ function displayBooks(books) {
         // Append all elements to the card and add the card to the book container
         bookCard.appendChild(img);
         bookCard.appendChild(title);
-        bookCard.appendChild(description);
+        //bookCard.appendChild(description);
         bookContainer.appendChild(bookCard);
     });
 }

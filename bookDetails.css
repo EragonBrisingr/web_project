@@ -1,3 +1,21 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+  }
+
+html{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.logout{
+    text-decoration: none;
+    color: black;
+    padding-top: 6%;
+}
+
 body {
     background-color: #f8f9fa; /* Light gray background */
     color: #212529; /* Dark text */
@@ -24,4 +42,35 @@ body {
 
 .book-info p {
     font-size: 1.1em;
+}
+
+.search-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-area input{
+    border-radius: 25px;
+    padding: 10px;
+    width: 50%;
+    border: none;
+    margin: 1%;
+}
+
+.search-area button{
+    border-radius: 250px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(42, 133, 0);
+    color: white;
+    margin: 1%;
+}
+
+.btn{
+    border-radius:20px !important;
+}
+
+.form-control{
+    border-radius: 20px !important;
 }

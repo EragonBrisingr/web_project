@@ -27,17 +27,22 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-            <li class="nav-item" style="padding-top:10;">
-              <?php
-                  if(isset($_SESSION['username'])){
-                      $user = $_SESSION['username'];
-                  }
-              ?>
+            <li class="nav-item" style="padding-top:5%;">
+                <?php
+                    if(isset($_SESSION['username'])): ?>
+                      Welcome, 
+                      <?php echo $_SESSION['username']; ?>
+                  <?php endif; ?>
+                  !
+              </li>
             </li>
-            
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="index.php">Home</a>
               </li>
+              <li class="nav-item" style="padding-top:5%;">
+                <a href="login.html"class="fa-solid fa-right-from-bracket logout"></a>
+              </li> 
+              
             </ul>
             <form id="searchForm" class="d-flex">
               <input class="form-control me-2" id="txtSearch" placeholder="Search">

@@ -39,7 +39,10 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>              
+              </li>
+              <li class="nav-item" style="padding-top:5%;">
+                <a href="login.html"class="fa-solid fa-right-from-bracket logout"></a>
+              </li>           
             </ul>
             <form id="searchForm" class="d-flex">
               <input class="form-control me-2" id="txtSearch" placeholder="Search">
@@ -51,7 +54,7 @@
 
     <main id="book-container" class="container">
         <div class="row" id="main">
-          <!--
+          <!--+
             <div class="card card-style" style="width: 18rem;">
                 <img class="card-img-top" src="https://placehold.co/600x400" alt="Card image cap">
                 <div class="card-body">

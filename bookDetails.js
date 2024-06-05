@@ -54,30 +54,10 @@ function displayBookDetails(book) {
 }
 
 function saveBook(book) {
-    fetch('saveBook.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',//save as json
-        },
-        body: JSON.stringify({ //convert to json from js object
-            userId: sessionStorage.getItem('userId'), // Assuming user ID is stored in sessionStorage
-            bookId: book.id,  // Assuming `book.id` is the Google Books ID
-            googleBooksUrl: `https://www.googleapis.com/books/v1/volumes/${book.id}`
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert("Book saved successfully!");
-        } else {
-            throw new Error(data.message);
-        }
-    })
-    .catch(error => {
-        console.error("Error saving book:", error);
-        alert("Failed to save book. Please try again.");
-    });
+    
+    
 }
+
 
 
 
