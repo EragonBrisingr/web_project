@@ -32,6 +32,7 @@
                 values('$username', '$email', '$password')";
         if($conn->query($sql) === TRUE){
             $_SESSION['username']=$username;
+            $_SESSION['email']=$email;
             echo "<script>alert('Signup Successful!'); window.location.href = 'index.php';</script>";
         }
         else{
